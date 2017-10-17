@@ -1,0 +1,207 @@
+version: '1.0'
+steps:
+  step_1:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_2:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_3:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_4:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_5:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_6:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_7:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_8:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_9:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_10:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_11:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_12:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_13:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_14:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_15:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_16:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brie
+  step_17:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_18:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_19:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_20:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_21:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_22:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_23:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_24:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_25:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_26:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_27:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_28:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_29:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_30:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_31:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_32:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_33:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_34:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_35:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_36:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brie
+  step_37:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_38:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_39:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_40:
+    title: stress test
+    image: alexeiled/stress-ng
+    commands: 
+      - stress-ng --parallel 0 --cpu 4 --hdd 4 --io 4 --timeout 30s --metrics-brief
+  step_last:
+    title: stress status
+    image: alpine
+    commands: 
+      - echo "Test Completed!!!"
