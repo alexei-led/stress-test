@@ -14,13 +14,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_1_1
+            labels:
+              group: group_1
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "1.2"
     dependencies:
       - "1.1"
@@ -28,13 +30,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_1_2
+            labels:
+              group: group_1
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "1.3"
     dependencies:
       - "1.2"
@@ -42,13 +46,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_1_3
+            labels:
+              group: group_1
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "1.last"
     dependencies:
       - "1.3"
@@ -56,25 +62,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_1_last
+            labels:
+              group: group_1
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "2.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_2_1
+            labels:
+              group: group_2
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "2.2"
     dependencies:
       - "2.1"
@@ -82,13 +92,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_2_2
+            labels:
+              group: group_2
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "2.3"
     dependencies:
       - "2.2"
@@ -96,13 +108,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_2_3
+            labels:
+              group: group_2
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "2.last"
     dependencies:
       - "2.3"
@@ -110,25 +124,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_2_last
+            labels:
+              group: group_2
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "3.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_3_1
+            labels:
+              group: group_3
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "3.2"
     dependencies:
       - "3.1"
@@ -136,13 +154,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_3_2
+            labels:
+              group: group_3
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "3.3"
     dependencies:
       - "3.2"
@@ -150,13 +170,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_3_3
+            labels:
+              group: group_3
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "3.last"
     dependencies:
       - "3.3"
@@ -164,25 +186,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_3_last
+            labels:
+              group: group_3
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "4.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_4_1
+            labels:
+              group: group_4
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "4.2"
     dependencies:
       - "4.1"
@@ -190,13 +216,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_4_2
+            labels:
+              group: group_4
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "4.3"
     dependencies:
       - "4.2"
@@ -204,13 +232,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_4_3
+            labels:
+              group: group_4
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "4.last"
     dependencies:
       - "4.3"
@@ -218,25 +248,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_4_last
+            labels:
+              group: group_4
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "5.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_5_1
+            labels:
+              group: group_5
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "5.2"
     dependencies:
       - "5.1"
@@ -244,13 +278,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_5_2
+            labels:
+              group: group_5
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "5.3"
     dependencies:
       - "5.2"
@@ -258,13 +294,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_5_3
+            labels:
+              group: group_5
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "5.last"
     dependencies:
       - "5.3"
@@ -272,25 +310,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_5_last
+            labels:
+              group: group_5
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "6.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_6_1
+            labels:
+              group: group_6
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "6.2"
     dependencies:
       - "6.1"
@@ -298,13 +340,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_6_2
+            labels:
+              group: group_6
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "6.3"
     dependencies:
       - "6.2"
@@ -312,13 +356,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_6_3
+            labels:
+              group: group_6
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "6.last"
     dependencies:
       - "6.3"
@@ -326,25 +372,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_1_last
+            labels:
+              group: group_6
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "7.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_7_1
+            labels:
+              group: group_7
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "7.2"
     dependencies:
       - "7.1"
@@ -352,13 +402,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_7_2
+            labels:
+              group: group_7
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "7.3"
     dependencies:
       - "7.2"
@@ -366,13 +418,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_7_3
+            labels:
+              group: group_7
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "7.last"
     dependencies:
       - "7.3"
@@ -380,25 +434,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_2_last
+            labels:
+              group: group_7
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "8.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_8_1
+            labels:
+              group: group_8
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "8.2"
     dependencies:
       - "8.1"
@@ -406,13 +464,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_8_2
+            labels:
+              group: group_8
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "8.3"
     dependencies:
       - "8.2"
@@ -420,13 +480,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_8_3
+            labels:
+              group: group_8
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "8.last"
     dependencies:
       - "8.3"
@@ -434,25 +496,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_8_last
+            labels:
+              group: group_8
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "9.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_9_1
+            labels:
+              group: group_9
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "9.2"
     dependencies:
       - "9.1"
@@ -460,13 +526,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_9_2
+            labels:
+              group: group_9
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "9.3"
     dependencies:
       - "9.2"
@@ -474,13 +542,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_9_3
+            labels:
+              group: group_9
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "9.last"
     dependencies:
       - "9.3"
@@ -488,25 +558,29 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_9_last
+            labels:
+              group: group_9
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "10.1"
     jobTemplate:
       spec:
         template:
           metadata:
-            name: stress_test_10_1
+            labels:
+              group: group_10
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "10.2"
     dependencies:
       - "10.1"
@@ -514,13 +588,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_10_2
+            labels:
+              group: group_10
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "10.3"
     dependencies:
       - "10.2"
@@ -528,13 +604,15 @@ spec:
       spec:
         template:
           metadata:
-            name: stress_test_10_3
+            labels:
+              group: group_10
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: "10.last"
     dependencies:
       - "10.3"
@@ -548,13 +626,15 @@ spec:
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
-                args : ["--parallel", "0", "--cpu", "4", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
+                args : ["--parallel", "2", "--cpu", "8", "--hdd", "4", "--io", "4", "--timeout", "60s", "--metrics-brief"]
   - name: last
     jobTemplate:
       spec:
         template:
           metadata:
-            name: step_last
+            labels:
+              group: group_last
+              workflow: stress
           spec:
             restartPolicy: Never
             containers:
