@@ -18,7 +18,7 @@ spec:
               group: group_1
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -34,7 +34,7 @@ spec:
               group: group_1
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -50,7 +50,7 @@ spec:
               group: group_1
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -66,7 +66,7 @@ spec:
               group: group_1
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -80,7 +80,7 @@ spec:
               group: group_2
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -96,7 +96,7 @@ spec:
               group: group_2
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -112,7 +112,7 @@ spec:
               group: group_2
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -128,7 +128,7 @@ spec:
               group: group_2
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -142,7 +142,7 @@ spec:
               group: group_3
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -158,7 +158,7 @@ spec:
               group: group_3
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -174,7 +174,7 @@ spec:
               group: group_3
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -190,7 +190,7 @@ spec:
               group: group_3
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -204,7 +204,7 @@ spec:
               group: group_4
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -220,7 +220,7 @@ spec:
               group: group_4
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -236,7 +236,7 @@ spec:
               group: group_4
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -252,7 +252,7 @@ spec:
               group: group_4
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -266,7 +266,7 @@ spec:
               group: group_5
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -282,7 +282,7 @@ spec:
               group: group_5
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -298,7 +298,7 @@ spec:
               group: group_5
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -314,7 +314,7 @@ spec:
               group: group_5
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -328,7 +328,7 @@ spec:
               group: group_6
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -344,7 +344,7 @@ spec:
               group: group_6
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -360,7 +360,7 @@ spec:
               group: group_6
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -376,7 +376,7 @@ spec:
               group: group_6
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -390,7 +390,7 @@ spec:
               group: group_7
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -406,7 +406,7 @@ spec:
               group: group_7
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -422,7 +422,7 @@ spec:
               group: group_7
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -438,7 +438,7 @@ spec:
               group: group_7
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -452,7 +452,7 @@ spec:
               group: group_8
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -468,7 +468,7 @@ spec:
               group: group_8
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -484,7 +484,7 @@ spec:
               group: group_8
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -500,7 +500,7 @@ spec:
               group: group_8
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -514,7 +514,7 @@ spec:
               group: group_9
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -530,7 +530,7 @@ spec:
               group: group_9
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -546,7 +546,7 @@ spec:
               group: group_9
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -562,7 +562,7 @@ spec:
               group: group_9
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -576,7 +576,7 @@ spec:
               group: group_10
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -592,7 +592,7 @@ spec:
               group: group_10
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -608,7 +608,7 @@ spec:
               group: group_10
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -622,7 +622,7 @@ spec:
           metadata:
             name: stress_test_10_last
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-test
                 image: alexeiled/stress-ng
@@ -636,7 +636,7 @@ spec:
               group: group_last
               workflow: stress
           spec:
-            restartPolicy: Never
+            restartPolicy: OnFailure
             containers:
               - name: stress-end
                 image: alpine
