@@ -1,0 +1,226 @@
+version: 2.0
+
+#
+#                                                +---------+
+#                                                |         |
+#        +----------------------------+----------+  START  +---------+
+#        |                            |          |         |         |
+#        |                            |          +---------+         |
+#        |                            |                              |
+#        |                            |                              |
+#        |                            |                              |
+#        |                            |                              |
+# +------v------+             +-------v--------+           +---------v--------+
+# |             |             |                |           |                  |
+# |  git_clone  |             |  build_server  |           |  build_frontend  |
+# |             |             |                |           |                  |
+# +------+------+             +-------+--------+           +---------+--------+
+#        |                            |                              |
+#        |                            |                              |
+#        |                            |                              |
+#        |                            |                              |
+#        |                            |     +---------------+        |
+#        |                            |     |               |        |
+#        |                            +----->  scan_images  <--------+
+#        |                                  |               |
+#        |                                  +-------+-------+
+#        |                                          |
+#        |                                          |
+#        |                                          |
+#        |                                          |
+#        |                               +----------v------------+
+#        |                               |                       |
+#        |                               |  check_scan_images    |
+#        |                               |                       |
+#        |                               +----------+------------+
+#        |                                          |
+#        |                                          |
+#        |                                          |
+#        |     +---------------+                    |
+#        +----->               <--------------------+
+#              |  deploy_app   |
+#        +-----+               +-------+
+#        |     +---------------+       |
+#        |                             |
+#        |                             |
+#        |                             |
+#  +-----v-------+          +----------v---------+
+#  |             |          |                    |
+#  |  load_test  |          |  integration_test  |
+#  |             |          |                    |
+#  +-----+-------+          +----------+---------+
+#        |                             |
+#        |                             |
+#        |                             |
+#        |        +--------+           |
+#        |        |        |           |
+#        +-------->  END   <-----------+
+#                 |        |
+#                 +--------+
+#
+
+
+# workflow parameters
+# can be bind to ENV variable or file
+# parameter defined here is available to all steps
+parameters:
+  - name: project
+    type: string
+    description: project name
+    default: sockshop
+    bind:
+      - value: PROJECT_NAME
+
+# workflow contexts
+# context is a secret of sepcific type
+# as parameter it can be bound to ENV variable or file
+# context defined here is available for all steps
+contexts:
+  - name: cfapi_key
+    bind: 
+      - apiKey: CF_API_KEY
+  - name: mongolabs
+    bind:
+      - user: MONGODB_USER
+      - password: MONGODB_PASSWORD
+  - name: aws.us-east-dev
+    bind:
+      - credentials: /home/.aws/credentials 
+
+# workflow steps
+# step can be "typed" step (usually implemented as Docker container)
+# or call to another CF pipeline (of any version)
+steps:
+
+  # clone deployment repository
+  clone_deployment:
+    run: git/clone
+    with:
+      repository: git@github.com:sockshop/deploy.git
+    export:
+      volumes:
+        - name: code
+          path: /root/src
+      vars:
+        - GIT_SHA
+        - GIT_BRANCH
+
+  # build and push docker image from git repository
+  build_server:
+    run: docker/build_and_push
+    with:
+      context:
+        - name: cfcr.dockercfg
+          bind:
+            - .dockercfg: /home/.dockercfg
+      repository: git@github.com:sockshop/server.git
+      registry: r.cfcr.io/socketshop/server
+    export:
+      - IMAGE_NAME
+  
+  # run CF pipeline that builds, tests and pushes docker image for frontend
+  build_frontend:
+    run: codefresh/pipeline:1.0
+    with:
+      repository: sockshop/frontend
+      pipeline: build_and_test
+      env:
+        - BRANCH: master
+    export:
+      - IMAGE_NAME
+  
+  # use clair to scan docker images for security vulnarabilities
+  scan_images:
+    after:
+      - build_server
+      - build_frontend
+    run: clair.scan_images
+    with:
+      clair_server: ${{CLAIR_URL}}
+      images: 
+        - ${{SERVER_IMAGE}}
+        - ${{FRONTEND_IMAGE}}
+      env:
+        - CLAIR_URL: https://clair.qa.cluster:8443
+      envFrom:
+        - src: ${{build_server:IMAGE_NAME}}
+          env: SERVER_IMAGE
+        - src: ${{build_frontend:IMAGE_NAME}}
+          env: FRONTEND_IMAGE 
+    export:
+      volumes:
+        - name: results
+          path: /etc/scan/results
+
+  # chack clair scan result and fail on threshold bypass
+  check_scan_results:
+    after:
+      - scan_images
+    run: policy/check_scan_results
+    with:
+      threshold:
+        critical_max: 0
+        high_max: 10
+      workdir: /home/results
+      copyFrom:
+        - src: ${{scan_images:results}}
+          dest: /home/results
+
+  # deploy application to K8s cluster
+  deploy_app:
+    after:
+      - check_scan_results
+      - clone_deployment
+    run: k8s/client
+    with:
+      context:
+        - name: staging_cluster@gke
+          bind:
+            config: /home/.kube/config
+      copyFrom:
+        - src: ${{clone_deployment:code}}
+          dest: /home/deployment
+      envFrom:
+        - src: ${{clone_step:GIT_SHA}}
+      env:
+        - NAMESPACE: demo
+      workdir: /home/deployment
+      command: kubectl apply -f deploy.yml --namespace ${{NAMESPACE}}
+
+  # rul load test with StormRunnerLoad using SRL API key from `stormrunner_load`
+  load_test:
+    after:
+      - deploy_app
+    run: codefresh/pipeline
+    with:
+      repository: codefresh-io/bamigrash
+      pipeline: olegs-pipeline
+      context:
+        - stormrunner_load: sockshop_account
+      env:
+        - PORT: 9000
+        - LOAD_GENERATORS: 1024
+        - SCRIPT: main_load.srl
+    export:
+      volumes:
+        - name: load_results
+          path: /etc/srl/results
+
+  # rul load test with StormRunnerLoad using SRL API key from `stormrunner_load`
+  integration_test:
+    after:
+      - deploy_app
+    run: selenium/tests
+    with:
+      selenium_grid: ${{GRID}}
+      script: main_flow
+      context:
+        - name: saucelabs_selenium
+          bind:
+            server: SELENIUM_SERVER
+            account: SAUCE_USER_NAME
+            accessKey: SAUCE_ACCESS_KEY
+    export:
+      volumes:
+        - name: selenium_results
+          path: /etc/selenium/results
