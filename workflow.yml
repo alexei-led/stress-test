@@ -191,12 +191,14 @@ steps:
   load_test:
     after:
       - deploy_app
-    run: codefresh/pipeline
+    run: codefresh/pipeline:1.0
     with:
       repository: codefresh-io/bamigrash
       pipeline: olegs-pipeline
       context:
-        - stormrunner_load: sockshop_account
+        - name: stormrunner_load
+          bind:
+            - token: SRL_API_TOKEN
       env:
         - PORT: 9000
         - LOAD_GENERATORS: 1024
